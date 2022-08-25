@@ -3,6 +3,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
+import { Layouts } from '../components/Layouts'
+
 const Home: NextPage = () => {
   return (
     <div className={`
@@ -13,7 +15,9 @@ const Home: NextPage = () => {
       bg-gradient-to-r from-blue-500 to-orange-500
       text-white
     `}>
-      <h1>App</h1>
+      <Layouts title="Cadastro">
+          <span>Conteudo</span>
+      </Layouts>
     </div>
   )
 }
