@@ -1,5 +1,5 @@
 
-export default class  CheckList<ICheckListProps> {
+export default class  CheckList {
      #id: string
      #nameFarmer: string
      #nameFarm: string
