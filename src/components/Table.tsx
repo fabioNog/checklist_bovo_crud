@@ -10,8 +10,8 @@ export const Table:React.FC<ITableProps> = (props) => {
     function RenderHeader(){
         return (
             <tr>
-                <th>Nome Do Fazendeiro</th>
-                <th>Nome Fazenda</th>
+                <th>Fazendeiro</th>
+                <th>Fazenda</th>
                 <th>Cidade</th>
                 <th>Data</th>
             </tr>
@@ -31,8 +31,13 @@ export const Table:React.FC<ITableProps> = (props) => {
     }
 
     return (
-        <table>
-            <thead>
+        <table className="w-full">
+            <thead className={`
+                bg-gradient-to-r 
+                from-orange-500
+                to-orange-800
+                text-gray-100
+            `}>
                 {RenderHeader()}
             </thead>
             <tbody>
