@@ -1,4 +1,11 @@
-export const Layouts:React.FC = (props) => {
+import { Title} from "./Title"
+
+interface ILayoutProps{
+    title: string,
+    children: any
+}
+
+export const Layouts:React.FC<ILayoutProps> = (props) => {
     return(
         <div className={`
             flex
@@ -6,9 +13,11 @@ export const Layouts:React.FC = (props) => {
             w-2/3
             bg-white
             text-gray-800
+            rounded-md
         `}>
-            <div>
-                
+            <Title>{props.title}</Title>
+            <div className="p-6">
+                {props.children}
             </div>
 
         </div>
