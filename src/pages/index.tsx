@@ -6,9 +6,14 @@ import styles from '../styles/Home.module.css'
 const Home: NextPage = () => {
   return (
     <div className={`
-      flex h-screen justify-center items-center      
-      `}>
-      Texto
+      flex 
+      h-screen 
+      justify-center 
+      items-center      
+      bg-gradient-to-r from-blue-500 to-orange-500
+      text-white
+    `}>
+      <h1>App</h1>
     </div>
   )
 }
