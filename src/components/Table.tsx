@@ -18,9 +18,26 @@ export const Table:React.FC<ITableProps> = (props) => {
         )
     }
 
+    function RenderData(){
+        return props.checklist?.map((checklist,i) => {
+            return (
+                <tr key={checklist.id}>
+                    <td>{checklist.id}</td>
+                    <td>{checklist.nameFarm}</td>
+                    <td>{checklist.cityFarm}</td>
+                </tr>
+            )
+        })
+    }
+
     return (
         <table>
-            {RenderHeader()}
+            <thead>
+                {RenderHeader()}
+            </thead>
+            <tbody>
+                {RenderData()}
+            </tbody>
         </table>
     )
 } 
