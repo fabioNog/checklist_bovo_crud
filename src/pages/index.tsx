@@ -1,4 +1,5 @@
-import type { NextPage } from 'next'
+import {useState,useEffect} from 'react'
+import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
@@ -8,31 +9,12 @@ import { Table} from '../components/Table'
 
 import CheckList from '../core/Checklist' 
 
-const Home: NextPage = () => {
+interface IChecklistProps{
+  checklist: Array<object>
+}
 
-  const checklist = [
-    new CheckList(
-      'yhkdfkas23',
-      'Rebanhos',
-      'Pedro',
-      'Aparecida do Norte',
-      'Carlos',
-      'Antibiótico',
-      10,
-      20
-    ),
-    new CheckList(
-      'yhkdfkas24',
-      'Rebanhos2',
-      'Pedro2',
-      'Aparecida do Norte2',
-      'Carlos2',
-      'BPF',
-      12,
-      23
-    )
-  ]
-
+const Home: NextPage<IChecklistProps> = (props) => {
+ 
   return (
     <div className={`
       flex 
@@ -43,10 +25,21 @@ const Home: NextPage = () => {
       text-white
     `}>
       <Layouts title="Cadastro">
-          <Table checklist={checklist}/>
+          <Table checklist={props.checklist}/>
       </Layouts>
     </div>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const response = await fetch('http://challenge-front-end.bovcontrol.com/v1/checkList');
+  const data = await response.json();  
+  return {
+    props: {
+      checklist: data
+    }
+  }
+
 }
 
 export default Home

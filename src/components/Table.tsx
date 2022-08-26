@@ -1,12 +1,18 @@
+import {useCallback, useEffect, useState} from 'react'
+
 import CheckList from "../core/Checklist"
 
 
-
 interface ITableProps{
-    checklist: CheckList[];
+    checklist: Array<object>;
 }
 
-export const Table:React.FC<ITableProps> = (props) => {
+
+export const Table:React.FC<ITableProps> = (props) => {    
+
+    const [checklistState,setChecklistState] = useState(props.checklist)
+    
+    
     function RenderHeader(){
         return (
             <tr>
@@ -17,20 +23,23 @@ export const Table:React.FC<ITableProps> = (props) => {
             </tr>
         )
     }
+    
+    //console.log(checklistState)
 
     function RenderData(){
         return props.checklist?.map((checklist,i) => {
             return (
-                <tr key={checklist.id} className={`
+                <tr key={checklist._id} className={`
                     ${i % 2 === 0 ? 'bg-orange-200': 'bg-orange-100'}
                 `}>
-                    <td >{checklist.id}</td>
-                    <td className="text-left p-4">{checklist.nameFarm}</td>
-                    <td className="text-left p-4">{checklist.cityFarm}</td>
-                    <td className="text-left p-4">24/5/2022</td>
+                    <td >{checklist.from.name}</td>
+                    <td className="text-left p-4">{checklist.farmer.name}</td>
+                    <td className="text-left p-4">{checklist.farmer.city}</td>
+                    <td className="text-left p-4">{checklist.created_at}</td>
                 </tr>
             )
         })
+           
     }
 
     return (
