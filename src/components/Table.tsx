@@ -51,10 +51,36 @@ type CheckListType = {
 
       function RenderActions(){
         return (
-            <td>
-                <button>{iconEdit}</button>
-                <button>{iconTrash}</button>
-                <button>{iconEye}</button>
+            <td className="flex ">
+                <button className={`
+                    flex 
+                    justify-center 
+                    items-center
+                    text-green-600
+                    rounded-full p-2 m-1
+                    hover:bg-orange-50
+                `}>{iconEdit}
+                </button>
+                <button className={`
+                    flex 
+                    justify-center 
+                    items-center
+                    text-red-500
+                    rounded-full p-2 m-1
+                    hover:bg-orange-50
+                `}>
+                    {iconTrash}
+                    </button>
+                <button className={`
+                    flex 
+                    justify-center 
+                    items-center
+                    text-purple-700
+                    rounded-full p-2 m-1
+                    hover:bg-orange-50
+                `}>
+                    {iconEye}
+                </button>
             </td>
         )
       }
