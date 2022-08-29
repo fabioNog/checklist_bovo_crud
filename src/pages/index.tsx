@@ -28,8 +28,8 @@ type TableProps = {
 
 const Home: NextPage<TableProps> = (props) => {
   
-  const checklistEdit = () => {
-
+  const checklistEdit = (checklist: CheckListType) => {
+    console.log(checklist.farmer.name)
   }
   return (
     <div className={`
