@@ -1,5 +1,5 @@
 type CheckListType = {
-    _id: number
+    _id: string
     type: string
     created_at: string
     from: {
