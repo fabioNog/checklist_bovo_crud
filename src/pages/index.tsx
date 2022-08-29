@@ -9,11 +9,24 @@ import { Table} from '../components/Table'
 
 import CheckList from '../core/Checklist' 
 
-interface IChecklistProps{
-  checklist: Array<object>
+type CheckListType = {
+  _id: string
+  type: string
+  created_at: string
+  from: {
+    name: string
+  }
+  farmer: {
+    name: string
+    city: string
+  }
 }
 
-const Home: NextPage<IChecklistProps> = (props) => {
+type TableProps = {
+    checklist: CheckListType[];
+}
+
+const Home: NextPage<TableProps> = (props) => {
  
   return (
     <div className={`
