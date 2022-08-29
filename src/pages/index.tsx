@@ -27,7 +27,10 @@ type TableProps = {
 }
 
 const Home: NextPage<TableProps> = (props) => {
- 
+  
+  const checklistEdit = () => {
+
+  }
   return (
     <div className={`
       flex 
@@ -38,7 +41,7 @@ const Home: NextPage<TableProps> = (props) => {
       text-white
     `}>
       <Layouts title="Cadastro">
-          <Table checklist={props.checklist}/>
+          <Table checklist={props.checklist} checklistEdit={checklistEdit}/>
       </Layouts>
     </div>
   )

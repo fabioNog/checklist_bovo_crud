@@ -57,16 +57,19 @@ export const Table = (props: TableProps) => {
     function RenderActions(checklist: CheckListType) {
         return (
 
-            <td className="flex ">
+            <td className="flex justify-center">
                 {props.checklistEdit ? (
                     <button className={`
-                    flex 
-                    justify-center 
-                    items-center
-                    text-green-600
-                    rounded-full p-2 m-1
-                    hover:bg-orange-50
-                `}>{iconEdit}
+                        flex 
+                        justify-center 
+                        items-center
+                        text-green-600
+                        rounded-full p-2 m-1
+                        hover:bg-orange-50
+                    `}
+                    onClick={() => props.checklistEdit?.(checklist)}
+                    >       
+                        {iconEdit}
                     </button>
                 ) : false}
 
@@ -78,7 +81,9 @@ export const Table = (props: TableProps) => {
                         text-red-500
                         rounded-full p-2 m-1
                         hover:bg-orange-50
-                    `}>
+                    `}
+                    onClick={() => props.checklistExcluded?.(checklist)}
+                    >
                         {iconTrash}
                     </button>
                 ) : false}
@@ -91,7 +96,9 @@ export const Table = (props: TableProps) => {
                         text-purple-700
                         rounded-full p-2 m-1
                         hover:bg-orange-50
-                    `}>
+                    `}
+                    onClick={() => props.checklistEdit?.(checklist)}
+                    >
                         {iconEye}
                    </button>
                 ) : false}
