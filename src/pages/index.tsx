@@ -8,6 +8,7 @@ import { Layouts } from '../components/Layouts'
 import { Table} from '../components/Table'
 
 import CheckList from '../core/Checklist' 
+import { Botao } from '../components/Botao'
 
 type CheckListType = {
   _id: string
@@ -46,9 +47,15 @@ const Home: NextPage<TableProps> = (props) => {
       justify-center 
       items-center      
       bg-gradient-to-r from-blue-500 to-orange-500
-      text-white
+      
     `}>
       <Layouts title="Cadastro">
+          <div className='flex justify-end'>
+            <Botao className='mb-4 text-white'>
+              Novo Checklist
+            </Botao >
+          </div>
+          
           <Table 
             checklist={props.checklist} 
             checklistEdit={checklistEdit}
