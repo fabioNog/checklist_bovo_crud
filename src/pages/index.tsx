@@ -31,6 +31,14 @@ const Home: NextPage<TableProps> = (props) => {
   const checklistEdit = (checklist: CheckListType) => {
     console.log(checklist.farmer.name)
   }
+
+  const checklistExclude = (checklist: CheckListType) => {
+    console.log(checklist.farmer.name)
+  }
+
+  const checklistList = (checklist: CheckListType) => {
+    console.log(checklist.farmer.name)
+  }
   return (
     <div className={`
       flex 
@@ -41,7 +49,12 @@ const Home: NextPage<TableProps> = (props) => {
       text-white
     `}>
       <Layouts title="Cadastro">
-          <Table checklist={props.checklist} checklistEdit={checklistEdit}/>
+          <Table 
+            checklist={props.checklist} 
+            checklistEdit={checklistEdit}
+            checklistExcluded={checklistExclude}
+            checklistList={checklistList}
+          />
       </Layouts>
     </div>
   )
