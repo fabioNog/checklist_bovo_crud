@@ -15,6 +15,8 @@ type CheckListType = {
   
   type TableProps = {
       checklist: CheckListType[];
+      checklistSelect?: (checklist: CheckListType) => void
+      checklistExcluded?: (checklist: CheckListType) => void
   }
   
   export const Table = ({ checklist }: TableProps) => {
@@ -41,15 +43,14 @@ type CheckListType = {
                       <td className="text-left p-4">{checklist.farmer.name}</td>
                       <td className="text-left p-4">{checklist.farmer.city}</td>
                       <td className=" p-4">{checklist.created_at}</td>
-                      {RenderActions()}
-                  </tr>
-                
+                      {RenderActions(checklist)}
+                  </tr>                
               )
           })
   
       }
 
-      function RenderActions(){
+      function RenderActions(checklist: CheckListType){
         return (
             <td className="flex ">
                 <button className={`
