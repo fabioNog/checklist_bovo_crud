@@ -1,3 +1,5 @@
+import { iconEdit, iconEye, iconTrash } from "./icon"
+
 type CheckListType = {
     _id: string
     type: string
@@ -23,24 +25,38 @@ type CheckListType = {
                   <th className="text-left p-4">Fazenda</th>
                   <th className="text-left p-4">Cidade</th>
                   <th className="text-left p-4">Data</th>
+                  <th className="text-left p-4">Ações</th>
               </tr>
           )
       }
-  console.log(checklist)
+
       function RenderData(){
           return checklist?.map((checklist, i) => {
               return (
-                  <tr key={checklist._id} className={`
+                
+                  <tr key={i} className={`
                       ${i % 2 === 0 ? 'bg-orange-200': 'bg-orange-100'}
                   `}>
                       <td >{checklist.from.name}</td>
                       <td className="text-left p-4">{checklist.farmer.name}</td>
                       <td className="text-left p-4">{checklist.farmer.city}</td>
-                      <td className="text-left p-4">{checklist.created_at}</td>
+                      <td className=" p-4">{checklist.created_at}</td>
+                      {RenderActions()}
                   </tr>
+                
               )
           })
   
+      }
+
+      function RenderActions(){
+        return (
+            <td>
+                <button>{iconEdit}</button>
+                <button>{iconTrash}</button>
+                <button>{iconEye}</button>
+            </td>
+        )
       }
   
       return (
@@ -55,7 +71,7 @@ type CheckListType = {
                   {RenderHeader()}
               </thead>
               <tbody>
-                  {RenderData()}
+                  {RenderData()}                  
               </tbody>
           </table>
       )
