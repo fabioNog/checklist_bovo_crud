@@ -3,7 +3,7 @@ interface IBotaoProps{
     className?: string
     children: React.ReactNode
 }
-export const  Botao: React.FC<IBotaoProps> = (props) => {
+export const  Button: React.FC<IBotaoProps> = (props) => {
     const cor = props.cor ?? 'gray'
     return(
         <button className={`

@@ -28,7 +28,7 @@ type TableProps = {
     checklist: CheckListType[];
 }
 
-const Home: NextPage<TableProps> = (props) => {
+const Register: NextPage<TableProps> = (props) => {
   
   const checklistEdit = (checklist: CheckListType) => {
     console.log(checklist.farmer.name)
@@ -51,18 +51,7 @@ const Home: NextPage<TableProps> = (props) => {
       
     `}>
       <Layouts title="Cadastro">
-          <div className='flex justify-end'>
-            <Button className='mb-4 text-white'>
-              Novo Checklist
-            </Button >
-          </div>
-          
-          <Table 
-            checklist={props.checklist} 
-            checklistEdit={checklistEdit}
-            checklistExcluded={checklistExclude}
-            checklistList={checklistList}
-          />
+          <Form teste="ola"/>
       </Layouts>
     </div>
   )
@@ -79,4 +68,4 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
 }
 
-export default Home
+export default Register
