@@ -11,6 +11,7 @@ import CheckList from '../core/Checklist'
 import { Button } from '../components/Button'
 import { Form } from '../components/Form'
 
+
 type CheckListType = {
   _id: string
   type: string
@@ -50,7 +51,7 @@ const Register: NextPage<TableProps> = (props) => {
       bg-gradient-to-r from-blue-500 to-orange-500
       
     `}>
-      <Layouts title="Cadastro">
+      <Layouts title="Início" href="/" mostrarLink={true}>
           <Form teste="ola"/>
       </Layouts>
     </div>

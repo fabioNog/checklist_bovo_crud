@@ -8,8 +8,8 @@ export const  Button: React.FC<IBotaoProps> = (props) => {
     return(
         <button className={`
             bg-gradient-to-r
-            from-green-400
-            to-green-700
+            from-${props.cor}-400
+            to-${props.cor}-700
             px-4 py-2 rounded-md
             ${props.className}
         `}>

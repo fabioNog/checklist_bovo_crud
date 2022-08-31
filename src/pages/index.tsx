@@ -11,6 +11,8 @@ import CheckList from '../core/Checklist'
 import { Button } from '../components/Button'
 import { Form } from '../components/Form'
 
+import {MyLink} from '../components/MyLink'
+
 type CheckListType = {
   _id: string
   type: string
@@ -50,11 +52,15 @@ const Home: NextPage<TableProps> = (props) => {
       bg-gradient-to-r from-blue-500 to-orange-500
       
     `}>
-      <Layouts title="Cadastro">
+      <Layouts title="Cadastro" href="/">
           <div className='flex justify-end'>
-            <Button className='mb-4 text-white'>
-              Novo Checklist
-            </Button >
+            <MyLink href="/register">
+                <a>
+                  <Button className='mb-4 text-white' cor='green'>
+                    Novo Checklist
+                  </Button >
+                </a>
+            </MyLink>
           </div>
           
           <Table 
